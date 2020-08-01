@@ -10,7 +10,7 @@ variable "github_demo_owner"     {}
 variable "github_demo_reponame"  {}
 variable "argocd_ver"            {}
 variable "argo_rollouts_ver"     {}
-variable "hipstershop_namespace" {}
+variable "cluster_namespace" {}
 
 variable "management_context" {
   default = null    # If "null" then use regular local.context

@@ -14,7 +14,7 @@ inputs = {
   github_demo_reponame                     = "gke-demo"
   argocd_ver                               = "1.3.6"
   argo_rollouts_ver                        = "0.6.2"
-  hipstershop_namespace                    = "maestro"
+  cluster_namespace                        = "maestro"
   microservices = [
     "adservice",
     "cartservice",

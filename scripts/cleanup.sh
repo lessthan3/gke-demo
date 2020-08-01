@@ -15,19 +15,19 @@ gsutil iam ch -d serviceAccount:$service_account gs://artifacts.$project.appspot
 gsutil -m rm -r gs://${project}_terraform-state
 
 for fwrule in $(gcloud compute firewall-rules list \
-  | awk '$2~/demo-(staging|prod)/ {print $1}'); do
+  | awk '$2~/maestro-(staging|prod|dev)/ {print $1}'); do
   gcloud -q compute firewall-rules delete $fwrule
 done
 
-for environ in prod staging; do
-  for region in europe-west4 europe-west2; do
+for environ in prod staging dev; do
+  for region in us-central1; do
     gcloud config set -q compute/region "$region"
     gcloud config set -q compute/zone "${region}-a"
 
     gcloud -q compute routers delete $environ
-    gcloud -q container clusters delete cluster-demo-$environ
-    gcloud -q compute networks subnets delete demo-$environ
-    gcloud -q compute networks delete demo-$environ
+    gcloud -q container clusters delete cluster-maestro-$environ
+    gcloud -q compute networks subnets delete subnet-maestro-$environ
+    gcloud -q compute networks delete net-maestro-$environ
   done
 done
 
