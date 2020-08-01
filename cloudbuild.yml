@@ -132,12 +132,12 @@ steps:
       - |
         terragrunt apply-all --terragrunt-non-interactive \
           --terragrunt-include-external-dependencies
-        argocd app sync hipstershop-staging --prune --timeout 300
-        argocd app wait hipstershop-staging --health --timeout 300
+        argocd app sync maestro-staging --prune --timeout 300
+        argocd app wait maestro-staging --health --timeout 300
 
         # TODO: implement proper e2e testing
         tries=0
-        until (kubectl get services -n hipstershop frontend-external 2>&1 1>/dev/null); do
+        until (kubectl get services -n maestro frontend-external 2>&1 1>/dev/null); do
           if [[ $$tries -gt 20 ]]; then
             echo "Can't find frontend-external service. Aborting"
             exit 1
@@ -145,7 +145,7 @@ steps:
           tries=$((tries+1))
           sleep 2
         done
-        ip="$(kubectl get services -n hipstershop frontend-external \
+        ip="$(kubectl get services -n maestro frontend-external \
             -o custom-columns=IP:.status.loadBalancer.ingress[0].ip --no-headers)"
 
         tries=0
@@ -166,7 +166,7 @@ steps:
       - -ceuo
       - pipefail
       - |
-        terragrunt destroy -target=k8s_manifest.hipstershop-argo-app -auto-approve
+        terragrunt destroy -target=k8s_manifest.maestro-argo-app -auto-approve
 
   - id: "[prod] Update images tags to new versions in Kubernetes manifests"
     name: ilyalesikov/kustomize
@@ -201,8 +201,8 @@ steps:
       - -ceuo
       - pipefail
       - |
-        argocd app sync hipstershop-prod --prune --timeout 300
-        argocd app wait hipstershop-prod --health --timeout 300
+        argocd app sync maestro-prod --prune --timeout 300
+        argocd app wait maestro-prod --health --timeout 300
 
 timeout: 2h
 options:
