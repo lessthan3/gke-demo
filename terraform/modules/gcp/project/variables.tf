@@ -5,6 +5,9 @@ variable "microservices"        {
   type = list(string)
 }
 
+variable "dns_hosted_zone"      {}
+variable "dns_cf_zoneid"        {}
+
 variable "ssh_dir_path" {
   default = "/root/.ssh"
 }

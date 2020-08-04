@@ -21,4 +21,6 @@ inputs = {
   machine_type             = "n1-standard-2"
   max_nodes                = 3
   terraform_sa_fqdn        = dependency.gcp-project.outputs.terraform_sa_fqdn
+  dns_hosted_zone          = "maestro.io"
+  dns_cf_zoneid            = "XXXX"
 }

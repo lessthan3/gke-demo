@@ -7,3 +7,6 @@
 [submodule "third-party/terraform/modules/google-project-factory"]
 	path = third-party/terraform/modules/google-project-factory
 	url = https://github.com/terraform-google-modules/terraform-google-project-factory
+[submodule "third-party/terraform/modules/dns-multicloud"]
+	path = third-party/terraform/modules/dns-multicloud
+	url = https://github.com/lhaig/dns-multicloud

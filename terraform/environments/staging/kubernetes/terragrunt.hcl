@@ -10,9 +10,9 @@ dependency "gcp-k8s-cluster" {
   config_path = "../gcp/k8s-cluster"
 }
 
-# We use our prod cluster also as a management cluster with ArgoCD
-dependency "kubernetes-prod" {
-  config_path = "../../prod/kubernetes"
+# We use our argocd cluster also as a management cluster with ArgoCD
+dependency "kubernetes-argocd" {
+  config_path = "../../argocd/kubernetes"
 }
 
 inputs = {
@@ -21,7 +21,7 @@ inputs = {
   zones                  = dependency.gcp-k8s-cluster.outputs.zones
   cluster                = dependency.gcp-k8s-cluster.outputs.cluster
   endpoint               = dependency.gcp-k8s-cluster.outputs.endpoint
-  management_context     = dependency.kubernetes-prod.outputs.context
+  management_context     = dependency.kubernetes-argocd.outputs.context
   argo_rollouts_install  = true
   argocd_manager_install = true
 }
