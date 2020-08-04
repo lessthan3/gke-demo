@@ -14,34 +14,34 @@ patches:
 images:
 - name: adservice
   newName: gcr.io/maestroio-development/adservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: cartservice
   newName: gcr.io/maestroio-development/cartservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: checkoutservice
   newName: gcr.io/maestroio-development/checkoutservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: currencyservice
   newName: gcr.io/maestroio-development/currencyservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: emailservice
   newName: gcr.io/maestroio-development/emailservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: frontend
   newName: gcr.io/maestroio-development/frontend
-  newTag: 3324f10
+  newTag: 70c0470
 - name: paymentservice
   newName: gcr.io/maestroio-development/paymentservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: productcatalogservice
   newName: gcr.io/maestroio-development/productcatalogservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: recommendationservice
   newName: gcr.io/maestroio-development/recommendationservice
-  newTag: 3324f10
+  newTag: 70c0470
 - name: redis
   newName: redis
   newTag: 5.0.7-alpine3.11
 - name: shippingservice
   newName: gcr.io/maestroio-development/shippingservice
-  newTag: 3324f10
+  newTag: 70c0470
