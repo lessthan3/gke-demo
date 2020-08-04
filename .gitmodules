@@ -9,4 +9,4 @@
 	url = https://github.com/terraform-google-modules/terraform-google-project-factory
 [submodule "third-party/terraform/modules/dns-multicloud"]
 	path = third-party/terraform/modules/dns-multicloud
-	url = https://github.com/lhaig/dns-multicloud
+	url = https://github.com/lessthan3/dns-multicloud
